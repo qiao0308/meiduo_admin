@@ -18,6 +18,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.5.2 virtualenv at ~/.virtualenvs/meiduo_admin" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="meiduo_mall_admin" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />

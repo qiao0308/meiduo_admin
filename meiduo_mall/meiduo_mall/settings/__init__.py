@@ -1,0 +1,1 @@
+from corsheaders.middleware import CorsMiddleware
