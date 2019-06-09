@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from users.models import User
 from datetime import date, timedelta
-
+from goods.models import GoodsVisitCount
+from meiduo_admin.serializers.statistical import GoodsVisitCountModelSerializer
 
 class TotalView(APIView):
     permission_classes=[IsAuthenticated]
@@ -76,6 +77,18 @@ class MonthView(APIView):
 
         return Response(month_list)
 
+class GoodsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        # 日分类商品访问量===>GoodsVisitCount
+        today = date.today()
+        # 今天，每个分类的访问次数
+        visit_list = GoodsVisitCount.objects.filter(date=today)
+
+        serializer = GoodsVisitCountModelSerializer(visit_list, many=True)
+
+        return Response(serializer.data)
 
 
 
