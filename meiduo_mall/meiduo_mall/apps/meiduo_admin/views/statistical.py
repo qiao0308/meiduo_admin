@@ -26,3 +26,23 @@ class IncrementView(APIView):
             'count': count,
             'date': today
         })
+
+
+class ActiveView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self,request):
+        # 日活跃用户统计
+        today = date.today()
+        # 今天登录过的用户
+        # 今天登录过的用户
+        count=User.objects.filter(is_staff=False,last_login__gte=today).count()
+        return Response({
+            'count': count,
+            'date': today
+        })
+
+
+
+
+
+

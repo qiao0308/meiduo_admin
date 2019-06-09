@@ -7,6 +7,6 @@ urlpatterns = [
     url('^authorizations/$',obtain_jwt_token),
     url('^statistical/total_count/$', statistical.TotalView.as_view()),
     url('^statistical/day_increment/$', statistical.IncrementView.as_view()),
-
+    url('^statistical/day_active/$', statistical.ActiveView.as_view()),
 
 ]
