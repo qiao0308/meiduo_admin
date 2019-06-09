@@ -17,4 +17,12 @@ class TotalView(APIView):
             'date':today
         })
 
-
+class IncrementView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self,request):
+        today=date.today()
+        count=User.objects.filter(is_staff=False,date_joined__gte=today).count()
+        return Response({
+            'count': count,
+            'date': today
+        })
