@@ -40,6 +40,17 @@ class ActiveView(APIView):
             'count': count,
             'date': today
         })
+class OrderView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self,request):
+        # 日下单用户量统计
+        today = date.today()
+        # 今天下单的用户数量
+        count = User.objects.filter(orders__create_time__gte=today).count()
+        return Response({
+            'count': count,
+            'date': today
+        })
 
 
 

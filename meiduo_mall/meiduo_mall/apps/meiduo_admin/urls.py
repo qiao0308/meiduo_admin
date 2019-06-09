@@ -8,5 +8,5 @@ urlpatterns = [
     url('^statistical/total_count/$', statistical.TotalView.as_view()),
     url('^statistical/day_increment/$', statistical.IncrementView.as_view()),
     url('^statistical/day_active/$', statistical.ActiveView.as_view()),
-
+    url('^statistical/day_orders/$', statistical.OrderView.as_view()),
 ]
