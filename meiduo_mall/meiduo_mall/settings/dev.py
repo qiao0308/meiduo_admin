@@ -91,6 +91,7 @@ CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        # 'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -294,7 +295,7 @@ EMAIL_VERIFY_URL = 'http://www.meiduo.site:8000/emails/verification/'
 FDFS_URL = 'http://image.meiduo.site:8888/'
 # 指定文件存储类型
 DEFAULT_FILE_STORAGE = 'meiduo_mall.utils.fdfs.storage.FdfsStorage'
-
+FDFS_CLIENT_PATH = os.path.join(BASE_DIR, 'utils/fdfs/client.conf')
 # Haystack
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -333,7 +334,7 @@ REST_FRAMEWORK = {
 }
 import datetime
 JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=10),
     # 自定义响应体
     # 'JWT_RESPONSE_PAYLOAD_HANDLER': 'meiduo_admin.utils.jwt_response.jwt_response_payload_handler',
     # 自定义响应体函数

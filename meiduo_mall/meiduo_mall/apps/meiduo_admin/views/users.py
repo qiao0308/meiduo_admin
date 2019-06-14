@@ -19,11 +19,11 @@ from meiduo_admin.utils.pagination import MeiduoPagination
 #
 #         return Response(serializer.data)
 
-class UsersView(generics.ListAPIView):
+class UsersView(generics.ListCreateAPIView):
     # 说明：需要通过视图对象获得请求对象，再获取参数
     # 使用queryset属性时，这是个类属性，无法访问实例属性
     # 使用get_queryset方法时，这是个实例方法，可以访问实例属性
-    # queryset = User.objects.filter(is_staff=False,username__contains=).order_by('-id')
+    # queryset = User.objecfrom rest_framework.pagination import PageNumberPaginationfrom rest_framework.pagination import PageNumberPaginationts.filter(is_staff=False,username__contains=).order_by('-id')
     def get_queryset(self):
         # self.request,self.args,self.kwargs
         # 普通会员
